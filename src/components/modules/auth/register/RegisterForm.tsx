@@ -35,6 +35,11 @@ export default function RegisterForm() {
       const res = await registerUser(data);
       if (res?.success) {
         toast.success(res?.message);
+
+        // Redirect to login page after successful registration
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 2000);
       } else {
         toast.error(res?.message);
       }
@@ -45,8 +50,10 @@ export default function RegisterForm() {
 
   return (
     <div className="border-2 border-gray-300 rounded-xl flex-grow max-w-md w-full p-5">
-      <div className="flex items-center space-x-4 ">
-        <Logo />
+      <div className="flex items-center space-x-4 justify-center mb-5">
+        <div className="size-16">
+          <Logo />
+        </div>
         <div>
           <h1 className="text-xl font-semibold">Register</h1>
           <p className="font-extralight text-sm text-gray-600">
@@ -55,20 +62,10 @@ export default function RegisterForm() {
         </div>
       </div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <FormControl>
-                  <Input {...field} value={field.value || ""} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+        <form
+          className="w-full px-10 flex flex-col gap-4 focus:outline-primary"
+          onSubmit={form.handleSubmit(onSubmit)}
+        >
           <FormField
             control={form.control}
             name="email"
@@ -117,7 +114,7 @@ export default function RegisterForm() {
           <Button
             disabled={!!passwordConfirm && password !== passwordConfirm}
             type="submit"
-            className="mt-5 w-full cursor-pointer "
+            className="mt-5 w-full py-6 cursor-pointer"
           >
             {isSubmitting ? "Registering...." : "Register"}
           </Button>

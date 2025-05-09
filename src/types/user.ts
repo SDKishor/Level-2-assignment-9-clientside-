@@ -1,9 +1,8 @@
 export interface IUser {
-  userId: string;
-  name: string;
+  id: string;
   email: string;
-  isActive?: boolean;
   role: "user" | "admin";
+  isPremiumUser: boolean;
   iat?: number;
   exp?: number;
 }

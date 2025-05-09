@@ -1,7 +1,9 @@
+"use client";
+
 import { useUser } from "@/context/UserContext";
 
 export default function Home() {
-  const user = useUser();
+  const { user } = useUser();
   console.log(user);
   return (
     <div className="">
