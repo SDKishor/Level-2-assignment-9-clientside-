@@ -1,6 +1,5 @@
-import CheckIcon from "@/app/assets/svgs/CheckIcon";
-import XIcon from "@/app/assets/svgs/XIcon";
-import Link from "next/link";
+import { FreePlanCard } from "@/components/modules/subscription/free_plan";
+import { PremiumPlanCard } from "@/components/modules/subscription/premium_plan";
 
 const subscriptionPage = () => {
   return (
@@ -17,95 +16,9 @@ const subscriptionPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {/* Free Plan */}
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Free</h3>
-              <p className="text-4xl font-bold text-primary">
-                $0<span className="text-lg text-gray-500">/month</span>
-              </p>
-            </div>
-
-            <ul className="space-y-4 mb-8">
-              <li className="flex items-center">
-                <CheckIcon />
-                Basic search functionality
-              </li>
-              <li className="flex items-center">
-                <CheckIcon />
-                Read reviews
-              </li>
-              <li className="flex items-center">
-                <CheckIcon />
-                Save up to 5 favorite spots
-              </li>
-              <li className="flex items-center text-gray-400">
-                <XIcon />
-                Submit reviews
-              </li>
-              <li className="flex items-center text-gray-400">
-                <XIcon />
-                Premium search filters
-              </li>
-              <li className="flex items-center text-gray-400">
-                <XIcon />
-                Priority support
-              </li>
-            </ul>
-
-            <Link
-              href="/register"
-              className="block w-full text-center bg-gray-200 text-gray-800 py-3 rounded-lg hover:bg-gray-300 transition-colors"
-            >
-              Get Started
-            </Link>
-          </div>
-
+          <FreePlanCard />
           {/* Premium Plan */}
-          <div className="bg-primary/90 rounded-lg shadow-lg p-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 bg-yellow-400 text-primary px-4 py-1 text-sm font-bold rotate-45 translate-x-8 translate-y-4">
-              Most Popular
-            </div>
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold text-white mb-2">Premium</h3>
-              <p className="text-4xl font-bold text-white">
-                $9.99<span className="text-lg text-orange-200">/month</span>
-              </p>
-            </div>
-
-            <ul className="space-y-4 mb-8 text-orange-50">
-              <li className="flex items-center">
-                <CheckIcon />
-                Unlimited favorite spots
-              </li>
-              <li className="flex items-center">
-                <CheckIcon />
-                Submit unlimited reviews
-              </li>
-              <li className="flex items-center">
-                <CheckIcon />
-                Advanced search filters
-              </li>
-              <li className="flex items-center">
-                <CheckIcon />
-                Premium member badge
-              </li>
-              <li className="flex items-center">
-                <CheckIcon />
-                24/7 Priority support
-              </li>
-              <li className="flex items-center">
-                <CheckIcon />
-                Early access to new features
-              </li>
-            </ul>
-
-            <Link
-              href="/subscription/checkout"
-              className="block w-full text-center bg-white text-primary py-3 rounded-lg hover:bg-gray-100 transition-colors"
-            >
-              Upgrade Now
-            </Link>
-          </div>
+          <PremiumPlanCard />
         </div>
 
         {/* FAQ Section */}

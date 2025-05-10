@@ -23,8 +23,11 @@ export const registerUser = async (userData: FieldValues) => {
     }
 
     return result;
-  } catch (error: any) {
-    return Error(error);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return Error(error.message);
+    }
+    return Error("An unknown error occurred");
   }
 };
 
@@ -45,8 +48,11 @@ export const loginUser = async (userData: FieldValues) => {
     }
 
     return result;
-  } catch (error: any) {
-    return Error(error);
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return Error(error.message);
+    }
+    return Error("An unknown error occurred");
   }
 };
 
@@ -60,4 +66,8 @@ export const getCurrentUser = async () => {
   } else {
     return null;
   }
+};
+
+export const logoutUser = async () => {
+  (await cookies()).delete("accessToken");
 };

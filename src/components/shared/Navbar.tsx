@@ -1,18 +1,39 @@
 "use client";
 import Logo from "@/app/assets/svgs/Logo";
+import { useUser } from "@/context/UserContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Button } from "../ui/button";
+import { logoutUser } from "@/services/AuthService";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoggedIn] = useState(false);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const pathname = usePathname();
+
+  // Check if the user is logged in
+  const { user } = useUser();
+
+  useEffect(() => {
+    if (user) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [user]);
+
+  const handelLogout = () => {
+    logoutUser();
+    setIsLoggedIn(false);
+  };
 
   const links = [
     { name: "Home", href: "/" },
+    { name: "Posts", href: "/posts" },
     { name: "About Us", href: "/about" },
-    { name: "Subscription Plans", href: "/subscription" },
+    { name: "Plans", href: "/subscription" },
     ...(isLoggedIn
       ? [{ name: "Dashboard", href: "/dashboard", isButton: true }]
       : [
@@ -59,6 +80,15 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+            {isLoggedIn && (
+              <Button
+                variant={"outline"}
+                size={"lg"}
+                onClick={() => handelLogout()}
+              >
+                Logout
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
