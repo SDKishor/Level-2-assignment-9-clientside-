@@ -1,9 +1,7 @@
 import { PostCard } from "@/components/shared/postCard";
 import { Button } from "@/components/ui/button";
 import { useUser } from "@/context/UserContext";
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-
 import React from "react";
 
 const dummyPosts = [
@@ -33,40 +31,34 @@ const dummyPosts = [
     ratingAvg: 4,
     upvotes: 80,
     downvotes: 5,
-    isPremiumPost: false,
+    isPremiumPost: true,
   },
 ];
 
-export const PopularSection = () => {
+const AllPostSection = () => {
   const user = useUser();
-
   return (
-    <section className="bg-gray-50 ">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold text-primary">
-            Popular Food Spots
-          </h1>
-
-          <Link href={"/posts"}>
-            <Button variant={"link"} size={"lg"}>
-              View More
-              <ArrowRight className=" size-5" />
-            </Button>
-          </Link>
-        </div>
-        <div className="">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            {dummyPosts.map((post) => (
-              <PostCard
-                key={post.id}
-                post={post}
-                premiumUser={user.user?.isPremiumUser}
-              />
-            ))}
-          </div>
-        </div>
+    <div className="">
+      <div className="flex justify-between mb-8">
+        <h1 className="text-3xl font-bold text-primary ">All Posts</h1>
+        <Link href={"/posts/allposts"}>
+          <Button variant={"link"} size={"lg"}>
+            View All
+          </Button>
+        </Link>
       </div>
-    </section>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ">
+        {dummyPosts.map((post) => (
+          <PostCard
+            key={post.id}
+            post={post}
+            premiumUser={user.user?.isPremiumUser}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
+
+export default AllPostSection;

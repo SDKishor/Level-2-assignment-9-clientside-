@@ -20,14 +20,22 @@ export interface postCardProps {
     downvotes: number;
     isPremiumPost: boolean;
   };
+  premiumUser: boolean | undefined;
 }
 
-export function PostCard({ post }: postCardProps) {
+export function PostCard({ post, premiumUser }: postCardProps) {
   const totalVotes = post.upvotes - post.downvotes;
 
   return (
     <Link href={`/posts/${post.id}`} className="cursor-pointer">
-      <Card className="hover:shadow-lg transition-shadow duration-200 p-0">
+      <Card className="hover:shadow-lg transition-shadow duration-200 p-0 relative">
+        {!premiumUser && post.isPremiumPost && (
+          <div className="absolute z-30 h-full w-full bg-gradient-to-t from-white to-transparent">
+            <div className="w-full h-7/12 bg-gradient-to-t from-primary/90 to-transparent"></div>
+            <div className="w-full h-5/12 bg-primary/90"></div>
+          </div>
+        )}
+
         <div className="relative aspect-[4/3]">
           <Image
             src={post.image}
@@ -60,7 +68,10 @@ export function PostCard({ post }: postCardProps) {
               <MapPin className="h-4 w-4 text-rose-600" />
               <span className="truncate">{post.location}</span>
             </div>
-            <span className="font-semibold">${post.price.toFixed(2)}</span>
+            <span className="font-semibold ">
+              <span className="text-xl">৳ </span>
+              {post.price.toFixed(2)}
+            </span>
           </div>
 
           <div className="flex items-center justify-between">

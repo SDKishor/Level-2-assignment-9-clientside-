@@ -2,8 +2,10 @@
 
 import { ImageCarousel } from "@/components/modules/home/imageCarousel";
 import { PopularSection } from "@/components/modules/home/popularSection";
+import { PremiumSection } from "@/components/modules/home/premiumSection";
 
 import { useUser } from "@/context/UserContext";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   const { user } = useUser();
@@ -38,6 +40,72 @@ export default function Home() {
         </p>
       </div>
       <PopularSection />
+      <PremiumSection />
+      <section className="bg-white py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+          <div className=" bg-background py-8 px-4 sm:px-6 lg:px-8 rounded-lg shadow-md mb-6">
+            <h2 className="text-2xl font-bold mb-6 flex items-center">
+              <span className="w-2 h-10 bg-primary rounded-full mr-3"></span>
+              What We Offer
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  title: "Classic Street Foods",
+                  description:
+                    "Chotpoti, fuchka, rolls, kababs, burgers — all under one roof.",
+                },
+                {
+                  title: "Fusion Dishes",
+                  description:
+                    "Creative twists on traditional favorites for adventurous foodies.",
+                },
+                {
+                  title: "Online Ordering",
+                  description:
+                    "Easy-to-use platform to order your favorite snacks anytime.",
+                },
+                {
+                  title: "Fast Delivery",
+                  description:
+                    "We deliver hot and fresh street food to your doorstep in minutes.",
+                },
+              ].map((item, index) => (
+                <div key={index} className="flex items-start space-x-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center flex-shrink-0 mt-1">
+                    <ArrowRight className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-accent mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-foreground">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex gap-6">
+            <div className=" bg-background py-8 px-4 sm:px-6 lg:px-8 rounded-lg shadow-md">
+              <h2 className="text-2xl font-bold mb-6 flex items-center">
+                <span className="w-2 h-10 bg-primary rounded-full mr-3"></span>
+                Authentic Flavors
+              </h2>
+              <p className="px-4">
+                We use traditional recipes and ingredients to serve the real
+                taste of street food. We only show you authentic street food.
+              </p>
+            </div>
+            <div className=" bg-background py-8 px-4 sm:px-6 lg:px-8 rounded-lg shadow-md">
+              <h2 className="text-2xl font-bold mb-6 flex items-center">
+                <span className="w-2 h-10 bg-primary rounded-full mr-3"></span>
+                Hygienic & Fresh
+              </h2>
+              <p className="px-4">post are verified hygienic and fresh food.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -4,23 +4,23 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative py-20 h-96">
+      <div className="relative py-20 mb-10 h-96">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/public/assets/images/street-food.jpg"
+            src="/assets/pngs/bg_food.png"
             alt="Street food collage"
-            layout="fill"
-            objectFit="cover"
-            className="brightness-75"
+            fill
+            style={{ objectFit: "cover" }}
+            className="brightness-75 opacity-10"
           />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
           <div className="text-center w-full">
-            <h1 className="text-4xl font-bold text-white mb-6 drop-shadow-md">
+            <h1 className="text-6xl font-bold text-primary mb-6 ">
               Discover Street Food Culture
             </h1>
-            <p className="text-xl text-orange-100 max-w-2xl mx-auto drop-shadow-md">
+            <p className="text-xl  max-w-2xl mx-auto drop-shadow-md">
               Connecting food lovers with authentic street food experiences
               worldwide
             </p>
@@ -35,8 +35,9 @@ const AboutUs = () => {
             <Image
               src="https://images.unsplash.com/photo-1552912470-ee2e96439539?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Street food market"
-              layout="fill"
-              objectFit="cover"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              style={{ objectFit: "cover" }}
               className="rounded-lg"
             />
           </div>

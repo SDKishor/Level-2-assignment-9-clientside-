@@ -22,7 +22,7 @@ export function ImageCarousel({ items }: CarouselProps) {
   return (
     <Carousel
       plugins={[Autoplay({ delay: 5000 })]}
-      className="w-full max-w-7xl  mx-auto "
+      className="w-full max-w-7xl  mx-auto  overflow-hidden"
       opts={{
         loop: true,
         align: "start",
