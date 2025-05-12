@@ -2,7 +2,7 @@ import { PremiumCard } from "@/components/modules/subscription/premium_card";
 import { verifyPayment } from "@/services/subscriptionService";
 import React from "react";
 
-export const VerifyPage = async () => {
+const VerifyPage = async () => {
   const info = await verifyPayment();
 
   console.log(info.success);

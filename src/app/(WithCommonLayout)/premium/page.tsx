@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import SubscriptionForm from "@/components/modules/subscription/SubscriptionForm";
 
-export const PremiumPage = () => {
+const PremiumPage = () => {
   return (
     <div className=" py-8 min-h-screen mx-2 lg:mx-0">
       <div className="max-w-3xl mx-auto">
