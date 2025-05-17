@@ -3,12 +3,10 @@
 import { ImageCarousel } from "@/components/modules/home/imageCarousel";
 import { PopularSection } from "@/components/modules/home/popularSection";
 import { PremiumSection } from "@/components/modules/home/premiumSection";
-
-import { useUser } from "@/context/UserContext";
 import { ArrowRight } from "lucide-react";
 
 export default function Home() {
-  const { user } = useUser();
+  // const { user } = useUser();
 
   const carouselItems = [
     {
