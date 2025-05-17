@@ -9,7 +9,6 @@ import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   const { user } = useUser();
-  console.log(user);
 
   const carouselItems = [
     {

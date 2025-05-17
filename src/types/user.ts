@@ -1,7 +1,7 @@
 export interface IUser {
   id: string;
   email: string;
-  role: "user" | "admin";
+  role: "USER" | "ADMIN";
   isPremiumUser: boolean;
   iat?: number;
   exp?: number;

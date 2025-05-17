@@ -53,10 +53,7 @@ export function CommentSec({
     };
     const res = await postComment(newComment);
 
-    console.log(res);
-
     if (res?.success) {
-      console.log("comment posted successfully");
       const comments = await getAllComments(postId);
       if (comments?.success) {
         setComment(comments.data);

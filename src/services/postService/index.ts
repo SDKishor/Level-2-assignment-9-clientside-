@@ -35,7 +35,6 @@ export const CreatePost = async (postData: any) => {
 
     const data = await res.json();
     if (!res.ok) {
-      console.log(data);
       throw new Error(data.message || "Failed to fetch post");
     }
     return data;

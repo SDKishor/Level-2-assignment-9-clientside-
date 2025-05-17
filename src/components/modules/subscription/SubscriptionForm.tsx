@@ -69,7 +69,7 @@ const SubscriptionForm = () => {
     setIsLoading(true);
 
     const res = await subscription(requestData);
-    console.log(res);
+
     if (res?.success) {
       setIsLoading(false);
 

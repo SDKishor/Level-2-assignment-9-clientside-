@@ -11,6 +11,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const pathname = usePathname();
 
   // Check if the user is logged in
@@ -21,6 +22,9 @@ const Navbar = () => {
       setIsLoggedIn(true);
     } else {
       setIsLoggedIn(false);
+    }
+    if (user?.role === "ADMIN") {
+      setIsAdmin(true);
     }
   }, [user]);
 
@@ -34,7 +38,7 @@ const Navbar = () => {
     { name: "Posts", href: "/posts" },
     { name: "About Us", href: "/about" },
     { name: "Plans", href: "/subscription" },
-    ...(isLoggedIn
+    ...(isLoggedIn && isAdmin
       ? [{ name: "Dashboard", href: "/dashboard", isButton: true }]
       : [
           { name: "Login", href: "/login", isButton: true },

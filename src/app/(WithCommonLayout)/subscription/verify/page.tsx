@@ -5,8 +5,6 @@ import React from "react";
 const VerifyPage = async () => {
   const info = await verifyPayment();
 
-  console.log(info.success);
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <PremiumCard />

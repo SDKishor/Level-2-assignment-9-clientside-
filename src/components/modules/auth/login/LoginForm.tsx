@@ -33,8 +33,6 @@ export default function LoginForm() {
       if (res?.success) {
         toast.success(res?.message);
 
-        // Store the token in local storage
-        console.log(res.data.token);
         localStorage.setItem("token", res.data.token);
 
         // Redirect to home page

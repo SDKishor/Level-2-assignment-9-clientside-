@@ -9,8 +9,6 @@ export const PremiumPlanCard = () => {
 
   const isPremium = user?.isPremiumUser;
 
-  console.log(user);
-
   return (
     <div className="bg-primary/90 rounded-lg shadow-lg p-8 relative overflow-hidden">
       <div className="absolute top-0 right-0 bg-yellow-400 text-primary px-4 py-1 text-sm font-bold rotate-45 translate-x-8 translate-y-4">
